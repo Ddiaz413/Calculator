@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&&family=Tilt+Neon&display=swap");
+        * {
+          box-sizing: border-box;
+          /*   display: flex; */
+        }
+        html,
+        body {
+          height: 100%;
+          margin: 0;
+        }
+        body {
+          text-align: center;
+          background-image: url(data:image/jpeg;base64,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);
+          /*   background: #d7d1c6; */
+          /*   background-color: beige; */
+          /*   background: linear-gradient(to bottom right, yellow, cyan, magenta); */
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          /*   height: 100%; */
+        }
+        div#calculator {
+          background-color: #f4ead9;
+          height: 80%;
+          width: 75%;
+          border-radius: 5%;
+          border: 5px solid black;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 2%;
+          align-items: center;
+          justify-content: center;
+          padding: 2%;
+          box-sizing: border-box;
+        }
+        input#display {
+          border: 6px double black;
+          border-radius: 2%;
+          height: 15%;
+          width: 80%;
+          font-family: "Inconsolata", monospace;
+          text-align: right;
+          padding-right: 2%;
+          font-size: calc(2vw + 2vh);
+          align-items: center;
+          justify-content: center;
+          background-color: white;
+        }
+        .button-area {
+          overflow: hidden;
+          display: flex;
+          flex-wrap: wrap;
+          height: 80%;
+          /*   border: 2px solid red; */
+          padding: 2px;
+          align-items: center;
+          justify-content: center;
+          gap: 2%;
+        }
+        #buttons1 {
+          width: 70%;
+          gap: 2%;
+          /*   flex-direction: row-reverse; */
+          /*   align-content: flex-end; */
+        }
+        #buttons2 {
+          width: 20%;
+          /*   flex-direction: column; */
+          /*   flex-wrap: wrap; */
+        }
+        .number-button {
+          /*   border: 3px solid black;
+          border-radius: 10%; */
+          height: 20%;
+          flex: 1 0 30%;
+          background-color: #f7f2e9;
+        }
+        .input-button {
+          border: 5px double black;
+          border-radius: 5%;
+          cursor: pointer;
+        }
+        .operator {
+          border: 5px double black;
+          border-radius: 5%;
+          height: 15%;
+          flex: 0 0 80%;
+          background-color: #e9decc;
+        }
+        #equal {
+          height: 20%;
+          flex: 2 0 60%;
+          order: 10;
+        }
+        #clear {
+          background: #f7e2be;
+        }
+        </style>
+</head>
+<body>
+    <!-- 12PM Day 1 -->
+<div id="calculator">
+    <input type="text" id="display" maxLength="10" disabled>
+    <!--disabled makes it so you cant type-->
+    <div class="button-area" id="buttons1">
+      <!--     button.number-button.input-button{$}*10 -->
+      <button class="operator" id="equal" type="button">=</button>
+    </div>
+    <div class="button-area" id="buttons2">
+      <button class="operator" id="clear" type="button">🖤</button>
+      <button class="operator" data-value="+" id="add" type="button">+</button>
+      <button class="operator" data-value="-" id="subtract" type="button">-</button>
+      <button class="operator" data-value="*" id="multiply" type="button">*</button>
+      <button class="operator" data-value="/" id="divide" type="button">/</button>
+    </div>
+  </div>
+  <!--     <button class="number-button input-button">1</button>
+      <button class="number-button input-button">2</button>
+      <button class="number-button input-button">3</button>
+      <button class="number-button input-button">4</button>
+      <button class="number-button input-button">5</button>
+      <button class="number-button input-button">6</button>
+      <button class="number-button input-button">7</button>
+      <button class="number-button input-button">8</button>
+      <button class="number-button input-button">9</button>
+      <button class="number-button input-button">0</button> -->
+    <script>const calculator = document.getElementById("calculator");
+        const resultDisplay = document.getElementById("display");
+        const buttons1 = document.getElementById("buttons1");
+        const clearButton = document.getElementById("clear");
+        const equalButton = document.getElementById("equal");
+        const addButton = document.getElementById("add");
+        const minusButton = document.getElementById("subtract");
+        const divideButton = document.getElementById("divide");
+        const multiplyButton = document.getElementById("multiply");
+        // let maxLength = resultDisplay.getAttribute("maxLength");
+        resultDisplay.value = "0";
+        
+        let maxLength = resultDisplay.maxLength;
+        let tempNumber = null;
+        let firstNumber = null;
+        let secondNumber = null;
+        let operation = null;
+        let result = null;
+        
+        for (let i = 0; i < 10; i++) {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.classList.add("number-button");
+          button.classList.add("input-button");
+          button.textContent = i;
+          button.setAttribute("data-value", i);
+          // console.log(button);
+          if (i === 0) {
+            button.style.order = 1;
+          }
+          // if (i === 9) {
+          //   button.style.order = -1;
+          // }
+          buttons1.appendChild(button);
+        }
+        
+        const numberButtons = document.querySelectorAll(".number-button");
+        // console.log(numberButtons);
+        
+        numberButtons.forEach((button) => {
+          let dataValue = parseInt(button.getAttribute("data-value"));
+        
+          button.addEventListener("click", function (event) {
+            if (resultDisplay.value.length < maxLength) {
+              if (operation === null) {
+                if (firstNumber === null || firstNumber === 0) {
+                  firstNumber = dataValue;
+                } else {
+                  firstNumber = parseInt(firstNumber.toString().concat(dataValue));
+                }
+                resultDisplay.value = firstNumber.toString();
+              } else {
+                if (secondNumber === null || secondNumber === 0) {
+                  secondNumber = dataValue;
+                } else {
+                  secondNumber = parseInt(secondNumber.toString().concat(dataValue));
+                }
+                resultDisplay.value = secondNumber.toString();
+              }
+            }
+          });
+        });
+        
+        function clearValues() {
+          tempNumber = null;
+          firstNumber = null;
+          secondNumber = null;
+          operation = null;
+          result = null;
+          resultDisplay.value = 0;
+        }
+        clearButton.addEventListener("click", function () {
+          clearValues();
+        });
+        const operatorButtons = document.querySelectorAll(".operator");
+        
+        operatorButtons.forEach((button) => {
+          // console.log(button);
+          button.addEventListener("click", function (event) {
+            // console.log(event);
+            const thisOperation = event.target.id;
+            console.log(thisOperation);
+        
+            if (firstNumber !== null && secondNumber === null) {
+              switch (thisOperation) {
+                case "add":
+                  operation = "+";
+                  break;
+                case "subtract":
+                  operation = "-";
+                  break;
+                case "multiply":
+                  operation = "*";
+                  break;
+                case "divide":
+                  operation = "/";
+                  break;
+              }
+              resultDisplay.value = operation;
+            }
+          });
+        });
+        
+        equalButton.addEventListener("click", function (event) {
+          if (secondNumber !== null) {
+            switch (operation) {
+              case "+":
+                result = firstNumber + secondNumber;
+                break;
+              case "-":
+                result = firstNumber - secondNumber;
+                break;
+              case "*":
+                result = firstNumber * secondNumber;
+                break;
+              case "/":
+                result = firstNumber / secondNumber;
+                break;
+            }
+            resultDisplay.value = result;
+          }
+        });
+        </script>
+    
+</body>
+</html>
